@@ -195,15 +195,17 @@ export namespace wmapsym
         void CopyTransformedTile(Coords pos)
         {
             Tile& tile = map_.GetTile(pos);
-            auto transformed = _TransformedPositions(pos);
 
             if (tile.GetPlayer())
                 tile.SetPlayer(Player{ 1 });
 
             int player_zone_i = 2;
+
+            auto transformed = TransformedPositions(pos);
             for (const auto& coords : transformed)
             {
                 Tile& dup_tile = map_.GetTile(coords);
+
                 dup_tile = tile;
 
                 if (dup_tile.GetPlayer())
@@ -213,7 +215,7 @@ export namespace wmapsym
             }
         }
 
-        std::array<Coords, 3> _TransformedPositions(Coords pos) const
+        std::array<Coords, 3> TransformedPositions(Coords pos) const
         {
             auto [x, y] = pos;
             auto [sx, sy] = map_.GetSize();
