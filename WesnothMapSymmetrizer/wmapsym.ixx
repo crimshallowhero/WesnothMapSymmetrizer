@@ -139,7 +139,7 @@ export namespace wmapsym
 
             for (int y = 0; y < size_y; ++y)
             for (int x = 0; x < size_x; ++x)
-				new_tiles.at(y * new_size.X + x) = GetTile({ x, y });
+                new_tiles.at(y * new_size.X + x) = GetTile({ x, y });
 
             std::swap(tiles_, new_tiles);
             size_ = new_size;
@@ -221,21 +221,21 @@ export namespace wmapsym
 
             int dx, dy;
 
-	        switch (angle_deg_)
-	        {
+            switch (angle_deg_)
+            {
             case 0:   dx =  1; dy =  1; break;
-	        case 90:  dx = -1; dy =  1; break;
-	        case 180: dx = -1; dy = -1; break;
-	        case 270: dx =  1; dy = -1; break;
+            case 90:  dx = -1; dy =  1; break;
+            case 180: dx = -1; dy = -1; break;
+            case 270: dx =  1; dy = -1; break;
             default: throw std::out_of_range{"angle must be divisible by 90"};
-	        }
+            }
 
             if (dy < 0)
                 y -= x + 1 & 1;
 
             return
-        		dx * x >= dx * sx / 2
-        		&& dy * y > dy * sy / 2 - 1;
+                dx * x >= dx * sx / 2
+                && dy * y > dy * sy / 2 - 1;
         }
 
         void BlockLowerExtraTiles()

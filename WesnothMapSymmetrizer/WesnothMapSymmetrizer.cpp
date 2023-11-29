@@ -23,13 +23,13 @@ void LaunchProcess()
     int rotation_deg;
     while (true)
     {
-	    std::cout << "Sample quarter rotation in degrees: ";
-    	std::string temp;
-    	std::getline(std::cin, temp);
-    	rotation_deg = temp.empty() ? 0 : std::stoi(temp);
+        std::cout << "Sample quarter rotation in degrees: ";
+        std::string temp;
+        std::getline(std::cin, temp);
+        rotation_deg = temp.empty() ? 0 : std::stoi(temp);
 
         if (rotation_deg % 90 == 0)
-	        break;
+            break;
 
         std::cout << "Rotation must be divisible by 90\n";
     }
